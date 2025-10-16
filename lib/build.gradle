@@ -11,6 +11,9 @@ plugins {
 
     // Apply the java-library plugin for API and implementation separation.
     id 'java-library'
+
+    id 'maven-publish'
+    id 'signing'
 }
 
 repositories {
@@ -36,9 +39,46 @@ java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
     }
+    withJavadocJar()
+    withSourcesJar()
 }
 
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        rgbribbon(MavenPublication) {
+            from components.java
+            groupId = 'io.github.llschall'
+            artifactId = 'rgb-ribbon'
+            version = '0.0.1'
+            pom {
+                name = 'rgb-ribbon'
+                description = 'rgb-ribbon controls a led strip plugged in any Arduino board.'
+                url = 'https://github.com/llschall/rgb-ribbon'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'llschall'
+                        name = 'Laurent Schall'
+                        email = 'llschall@gmx.com'
+                    }
+                }
+                scm {
+                    url = 'https://github.com/llschall/rgb-ribbon.git'
+                }
+            }
+        }
+    }
+    signing {
+        sign publishing.publications.rgbribbon
+    }
 }
