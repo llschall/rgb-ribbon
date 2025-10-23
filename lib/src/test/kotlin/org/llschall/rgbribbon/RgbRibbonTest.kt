@@ -10,6 +10,6 @@ class RgbRibbonTest {
     @Test
     fun versionIsCorrect() {
         val test = RgbRibbon()
-        assertTrue(test.version() == "0.0.1")
+        assertTrue(test.version() == "0.0.2")
     }
 }
