@@ -5,6 +5,6 @@ class RgbRibbonImpl {
         var brightness: Int = 50
 
         @JvmField
-        var VERSION: String = "0.0.2"
+        var VERSION: String = "0.0.3"
     }
 }
