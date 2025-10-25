@@ -4,18 +4,25 @@ public class RgbRibbon {
 
     public static String VERSION = RgbRibbonImpl.VERSION;
 
-    final int ledCount;
+    final RgbRibbonImpl impl;
 
-    public RgbRibbon(int ledCount) {
-        this.ledCount = ledCount;
+    public RgbRibbon(int brightness) {
+        impl = new RgbRibbonImpl(brightness);
+    }
+
+    public void start() {
+        impl.start();
+    }
+
+    public void toggleBuiltInLed() {
+        impl.toggleBuiltInLed();
     }
 
     public RgbLed getLed(int i) {
-        return new RgbLed();
+        return new RgbLed(impl);
     }
 
-    public void setBrightness(int brightness) {}
-
-    public void flush() {}
-
+    public void setBrightness(int brightness) {
+        impl.updateBrightness(brightness);
+    }
 }
