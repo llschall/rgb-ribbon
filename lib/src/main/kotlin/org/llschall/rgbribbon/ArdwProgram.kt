@@ -25,11 +25,11 @@ class ArdwProgram : IArdwProgram {
         else
             data.a.v = 0;
 
+        data.b.v = brightness.get()
+
         data.a.x = red.get()
         data.a.y = green.get()
         data.a.z = blue.get()
-
-        data.b.x = brightness.get()
 
         return data
     }

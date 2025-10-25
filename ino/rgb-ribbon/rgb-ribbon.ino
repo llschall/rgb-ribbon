@@ -14,7 +14,7 @@
 #include <FastLED.h>
 
 // How many leds in your strip?
-#define NUM_LEDS 20
+#define NUM_LEDS 9
 
 #define DATA_PIN 3
 // Define the array of leds
@@ -69,17 +69,19 @@ void loop() {
     digitalWrite(LED_BUILTIN, LOW);
   }
 
-  int brightness = ardw_r()->b.x;
+  int brightness = ardw_r()->b.v;
   FastLED.setBrightness(brightness);
 
-  int r = ardw_r()->a.x;
-  int g = ardw_r()->a.y;
-  int b = ardw_r()->a.z;
-
   // Set the color of all leds
-  for (int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CRGB(r, g, b);
-  }
+  leds[0] = CRGB(ardw_r()->a.x, ardw_r()->a.y, ardw_r()->a.z);
+  leds[1] = CRGB(ardw_r()->b.x, ardw_r()->b.y, ardw_r()->b.z);
+  leds[2] = CRGB(ardw_r()->c.x, ardw_r()->c.y, ardw_r()->c.z);
+  leds[3] = CRGB(ardw_r()->d.x, ardw_r()->d.y, ardw_r()->d.z);
+  leds[4] = CRGB(ardw_r()->e.x, ardw_r()->e.y, ardw_r()->e.z);
+  leds[5] = CRGB(ardw_r()->f.x, ardw_r()->f.y, ardw_r()->f.z);
+  leds[6] = CRGB(ardw_r()->g.x, ardw_r()->g.y, ardw_r()->g.z);
+  leds[7] = CRGB(ardw_r()->h.x, ardw_r()->h.y, ardw_r()->h.z);
+  leds[8] = CRGB(ardw_r()->i.x, ardw_r()->i.y, ardw_r()->i.z);
 
   FastLED.show();
 
