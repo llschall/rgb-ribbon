@@ -24,15 +24,7 @@ class RgbRibbonImpl(ledCount: Int) {
         program.builtInLed.set(!get)
     }
 
-    fun updateRed(value: Int) {
-        program.red.set(value)
-    }
-
-    fun updateGreen(value: Int) {
-        program.green.set(value)
-    }
-
-    fun updateBlue(value: Int) {
-        program.blue.set(value)
+    fun getLed(i: Int): RgbLed {
+        return program.leds.get(i)
     }
 }

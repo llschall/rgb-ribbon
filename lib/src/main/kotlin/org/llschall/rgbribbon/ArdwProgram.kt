@@ -10,9 +10,12 @@ class ArdwProgram : IArdwProgram {
     var brightness = AtomicInteger()
     var builtInLed = AtomicBoolean(false)
 
-    var red = AtomicInteger()
-    var green = AtomicInteger()
-    var blue = AtomicInteger()
+    val leds = ArrayList<RgbLed>()
+
+    init {
+        for (i in 0 until 9)
+            leds.add(RgbLed())
+    }
 
     override fun ardwSetup(p0: SerialData): SerialData {
         return SerialData()
@@ -27,11 +30,42 @@ class ArdwProgram : IArdwProgram {
 
         data.b.v = brightness.get()
 
-        data.a.x = red.get()
-        data.a.y = green.get()
-        data.a.z = blue.get()
+        data.a.x = leds[0].red
+        data.a.y = leds[0].green
+        data.a.z = leds[0].blue
+
+        data.b.x = leds[1].red
+        data.b.y = leds[1].green
+        data.b.z = leds[1].blue
+
+        data.c.x = leds[2].red
+        data.c.y = leds[2].green
+        data.c.z = leds[2].blue
+
+        data.d.x = leds[3].red
+        data.d.y = leds[3].green
+        data.d.z = leds[3].blue
+
+        data.e.x = leds[4].red
+        data.e.y = leds[4].green
+        data.e.z = leds[4].blue
+
+        data.f.x = leds[5].red
+        data.f.y = leds[5].green
+        data.f.z = leds[5].blue
+
+        data.g.x = leds[6].red
+        data.g.y = leds[6].green
+        data.g.z = leds[6].blue
+
+        data.h.x = leds[7].red
+        data.h.y = leds[7].green
+        data.h.z = leds[7].blue
+
+        data.i.x = leds[8].red
+        data.i.y = leds[8].green
+        data.i.z = leds[8].blue
 
         return data
     }
-
 }

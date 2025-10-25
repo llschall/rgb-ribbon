@@ -2,21 +2,20 @@ package org.llschall.rgbribbon;
 
 public class RgbLed {
 
-    RgbLed(RgbRibbonImpl impl) {
-        this.impl = impl;
-    }
+    int red;
+    int green;
+    int blue;
 
-    final RgbRibbonImpl impl;
 
     public void setRed(int value) {
-        impl.updateRed(value);
+        red = value;
     }
 
     public void setGreen(int value) {
-        impl.updateGreen(value);
+        green = value;
     }
 
     public void setBlue(int value) {
-        impl.updateBlue(value);
+        blue = value;
     }
 }

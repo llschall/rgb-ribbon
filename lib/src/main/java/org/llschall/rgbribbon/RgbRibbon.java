@@ -19,7 +19,7 @@ public class RgbRibbon {
     }
 
     public RgbLed getLed(int i) {
-        return new RgbLed(impl);
+        return impl.getLed(i);
     }
 
     public void setBrightness(int brightness) {
