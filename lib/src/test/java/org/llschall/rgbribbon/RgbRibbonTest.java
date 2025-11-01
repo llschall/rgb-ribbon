@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class RgbRibbonTest {
     @Test
     public void versionIsCorrect() {
-        assertEquals("0.0.4", RgbRibbon.VERSION);
+        assertEquals("0.0.5", RgbRibbon.VERSION);
     }
 
     @Test
