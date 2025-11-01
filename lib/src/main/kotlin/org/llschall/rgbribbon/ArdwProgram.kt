@@ -2,6 +2,8 @@ package org.llschall.rgbribbon
 
 import org.llschall.ardwloop.IArdwProgram
 import org.llschall.ardwloop.value.SerialData
+import java.util.concurrent.ArrayBlockingQueue
+import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 
@@ -11,6 +13,8 @@ class ArdwProgram : IArdwProgram {
     var builtInLed = AtomicBoolean(false)
 
     val leds = ArrayList<RgbLed>()
+
+    val queue = ArrayBlockingQueue<String>(10, false);
 
     init {
         for (i in 0 until 9)
@@ -23,6 +27,10 @@ class ArdwProgram : IArdwProgram {
 
     override fun ardwLoop(p0: SerialData): SerialData {
         val data = SerialData()
+
+        queue.poll(40, TimeUnit.SECONDS);
+        queue.clear()
+
         if (builtInLed.get())
             data.a.v = 1;
         else

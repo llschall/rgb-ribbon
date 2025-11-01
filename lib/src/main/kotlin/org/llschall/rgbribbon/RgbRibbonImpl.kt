@@ -2,7 +2,7 @@ package org.llschall.rgbribbon
 
 import org.llschall.ardwloop.ArdwloopStarter
 
-class RgbRibbonImpl(ledCount: Int) {
+class RgbRibbonImpl() {
 
     companion object {
         @JvmField
@@ -15,6 +15,10 @@ class RgbRibbonImpl(ledCount: Int) {
         ArdwloopStarter.get().start(program, 9600)
     }
 
+    fun publish() {
+        program.queue.add("")
+    }
+
     fun updateBrightness(brightness: Int) {
         program.brightness.set(brightness)
     }
@@ -25,6 +29,6 @@ class RgbRibbonImpl(ledCount: Int) {
     }
 
     fun getLed(i: Int): RgbLed {
-        return program.leds.get(i)
+        return program.leds[i]
     }
 }

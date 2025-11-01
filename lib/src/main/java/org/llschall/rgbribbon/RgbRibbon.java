@@ -7,7 +7,7 @@ public class RgbRibbon {
     final RgbRibbonImpl impl;
 
     public RgbRibbon(int brightness) {
-        impl = new RgbRibbonImpl(brightness);
+        impl = new RgbRibbonImpl();
     }
 
     public void start() {
