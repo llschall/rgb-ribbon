@@ -1,5 +1,7 @@
 package org.llschall.rgbribbon;
 
+import java.awt.Color;
+
 public class RgbLed {
 
     int red;
@@ -17,5 +19,11 @@ public class RgbLed {
 
     public void setBlue(int value) {
         blue = value;
+    }
+
+    public void setColor(Color color) {
+        red = color.getRed();
+        green = color.getGreen();
+        blue = color.getBlue();
     }
 }
