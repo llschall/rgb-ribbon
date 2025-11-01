@@ -1,18 +1,22 @@
 package org.llschall.rgbribbon
 
+import org.llschall.ardwloop.ArdwloopStatus
 import org.llschall.ardwloop.IArdwProgram
 import org.llschall.ardwloop.value.SerialData
 import java.util.concurrent.ArrayBlockingQueue
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
+import java.util.function.Consumer
 
 class ArdwProgram : IArdwProgram {
 
     var brightness = AtomicInteger()
-    var builtInLed = AtomicBoolean(false)
 
+    var builtInLed = AtomicBoolean(false)
     val leds = ArrayList<RgbLed>()
+
+    private val listeners: MutableList<Consumer<Status>> = ArrayList()
 
     val queue = ArrayBlockingQueue<String>(1, false);
 
@@ -75,5 +79,20 @@ class ArdwProgram : IArdwProgram {
         data.i.z = leds[8].blue
 
         return data
+    }
+
+    override fun fireStatusChanged(status: ArdwloopStatus) {
+        listeners.forEach {
+            if (status == ArdwloopStatus.STARTED) {
+                it.accept(Status.STARTED)
+            }
+            if (status == ArdwloopStatus.CONNECTED) {
+                it.accept(Status.CONNECTED)
+            }
+        }
+    }
+
+    fun addStatusListener(consumer: Consumer<Status>) {
+        listeners.add(consumer)
     }
 }

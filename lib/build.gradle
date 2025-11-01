@@ -23,7 +23,7 @@ repositories {
 
 dependencies {
 
-    implementation 'io.github.llschall:ardwloop:0.3.4'
+    implementation 'io.github.llschall:ardwloop:0.3.5'
 
     // Use JUnit Jupiter for testing.
     testImplementation libs.junit.jupiter

@@ -1,6 +1,7 @@
 package org.llschall.rgbribbon
 
 import org.llschall.ardwloop.ArdwloopStarter
+import java.util.function.Consumer
 
 class RgbRibbonImpl() {
 
@@ -31,5 +32,9 @@ class RgbRibbonImpl() {
 
     fun getLed(i: Int): RgbLed {
         return program.leds[i]
+    }
+
+    fun addStatusListener(consumer: Consumer<Status>) {
+        program.addStatusListener(consumer)
     }
 }

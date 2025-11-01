@@ -1,5 +1,7 @@
 package org.llschall.rgbribbon;
 
+import java.util.function.Consumer;
+
 /**
  * Controls an RGB LED ribbon/strip, providing functionality to manage individual LEDs
  * and overall ribbon settings.
@@ -44,6 +46,10 @@ public class RgbRibbon {
      */
     public void publish() {
         impl.publish();
+    }
+
+    public void addStatusListener(Consumer<Status> consumer) {
+        impl.addStatusListener(consumer);
     }
 
     /**
