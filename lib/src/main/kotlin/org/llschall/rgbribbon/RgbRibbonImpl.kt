@@ -16,7 +16,7 @@ class RgbRibbonImpl() {
     }
 
     fun publish() {
-        program.queue.add("")
+        program.queue.offer("")
     }
 
     fun updateBrightness(brightness: Int) {
@@ -26,6 +26,7 @@ class RgbRibbonImpl() {
     fun toggleBuiltInLed() {
         val get = program.builtInLed.get()
         program.builtInLed.set(!get)
+        publish()
     }
 
     fun getLed(i: Int): RgbLed {

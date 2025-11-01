@@ -18,6 +18,10 @@ public class RgbRibbon {
         impl.toggleBuiltInLed();
     }
 
+    public void publish() {
+        impl.publish();
+    }
+
     public RgbLed getLed(int i) {
         return impl.getLed(i);
     }

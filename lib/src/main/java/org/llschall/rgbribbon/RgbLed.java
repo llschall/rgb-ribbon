@@ -8,7 +8,6 @@ public class RgbLed {
     int green;
     int blue;
 
-
     public void setRed(int value) {
         red = value;
     }

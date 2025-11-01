@@ -14,7 +14,7 @@ class ArdwProgram : IArdwProgram {
 
     val leds = ArrayList<RgbLed>()
 
-    val queue = ArrayBlockingQueue<String>(10, false);
+    val queue = ArrayBlockingQueue<String>(1, false);
 
     init {
         for (i in 0 until 9)
