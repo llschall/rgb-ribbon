@@ -1,9 +1,6 @@
 /*
- * Featuring Ardwloop 0.3.4
- *
- * More setup instructions are available in
+ * Setup instructions are available on
  * https://github.com/llschall/rgb-ribbon
- *
  */
 
 // Use Ardwloop 0.3.4
@@ -17,6 +14,7 @@
 #define NUM_LEDS 9
 
 #define DATA_PIN 3
+
 // Define the array of leds
 CRGB leds[NUM_LEDS];
 
@@ -28,33 +26,19 @@ void setup() {
   FastLED.setBrightness(40);
 
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-  leds[0] = CRGB(0, 0, 20);
-  leds[1] = CRGB(0, 0, 20);
-  leds[2] = CRGB(0, 0, 20);
-  leds[3] = CRGB(0, 0, 20);
-  leds[4] = CRGB(0, 0, 20);
-  FastLED.show();
 
-  delay(700);
-
-  // Make the led blink on start up
-  for (int i = 0; i < 5; i++) {
-    digitalWrite(LED_BUILTIN, HIGH);
-    delay(300);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(300);
+  for (int i = 0; i < NUM_LEDS; i++) {
+    leds[i] = CRGB(0, 20, 20);
   }
-
-  leds[1] = CRGB(0, 20, 0);
-  leds[3] = CRGB(0, 20, 0);
   FastLED.show();
-  
+
   // Here the baud value should be set to the same value as on the Java side
   ardw_setup(BAUD_9600);
-  
-  leds[0] = CRGB(0, 20, 0);
-  leds[2] = CRGB(0, 20, 0);
-  leds[4] = CRGB(0, 20, 0);
+
+  for (int i = 0; i < NUM_LEDS; i++) {
+    leds[i] = CRGB(0, 0, 20);
+  }
+
   FastLED.show();
 }
 
