@@ -51,6 +51,13 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+// Include .ino files in the jar
+jar {
+    from('../ino') {
+        include '**/*.ino'
+    }
+}
+
 publishing {
     publications {
         rgbribbon(MavenPublication) {
