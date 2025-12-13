@@ -1,9 +1,11 @@
 /*
+ * RGB Ribbon version 0.0.6
+ *
  * Setup instructions are available on
  * https://github.com/llschall/rgb-ribbon
  */
 
-// Use Ardwloop 0.3.4
+// Use Ardwloop 0.3.7
 #include <Ardwloop.h>
 
 // Use FastLED by Daniel Garcia

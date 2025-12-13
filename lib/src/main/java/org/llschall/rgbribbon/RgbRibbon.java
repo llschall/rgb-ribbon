@@ -48,6 +48,11 @@ public class RgbRibbon {
         impl.publish();
     }
 
+    /**
+     * Adds a listener to monitor status changes of the ribbon
+     *
+     * @param consumer Consumer that handles status updates
+     */
     public void addStatusListener(Consumer<Status> consumer) {
         impl.addStatusListener(consumer);
     }

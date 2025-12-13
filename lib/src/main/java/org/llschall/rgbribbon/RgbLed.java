@@ -22,6 +22,13 @@ public class RgbLed {
     int blue;
 
     /**
+     * Constructs an RgbLed instance
+     */
+    public RgbLed() {
+        // create instance only
+    }
+
+    /**
      * Sets the red component of the LED
      *
      * @param value The red intensity (0-255)
