@@ -59,15 +59,12 @@ void loop() {
   FastLED.setBrightness(brightness);
 
   // Set the color of all leds
-  leds[0] = CRGB(ardw_r()->a.x, ardw_r()->a.y, ardw_r()->a.z);
-  leds[1] = CRGB(ardw_r()->b.x, ardw_r()->b.y, ardw_r()->b.z);
-  leds[2] = CRGB(ardw_r()->c.x, ardw_r()->c.y, ardw_r()->c.z);
-  leds[3] = CRGB(ardw_r()->d.x, ardw_r()->d.y, ardw_r()->d.z);
-  leds[4] = CRGB(ardw_r()->e.x, ardw_r()->e.y, ardw_r()->e.z);
-  leds[5] = CRGB(ardw_r()->f.x, ardw_r()->f.y, ardw_r()->f.z);
-  leds[6] = CRGB(ardw_r()->g.x, ardw_r()->g.y, ardw_r()->g.z);
-  leds[7] = CRGB(ardw_r()->h.x, ardw_r()->h.y, ardw_r()->h.z);
-  leds[8] = CRGB(ardw_r()->i.x, ardw_r()->i.y, ardw_r()->i.z);
+  for (int i = 0; i < 9; i++) {
+    int r = ardw_array(3 * i);
+    int g = ardw_array(3 * i + 1);
+    int b = ardw_array(3 * i + 2);
+    leds[i] = CRGB(r, g, b);
+  }
 
   FastLED.show();
 
