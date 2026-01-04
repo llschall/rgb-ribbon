@@ -1,5 +1,5 @@
 /*
- * RGB Ribbon version 0.1.0
+ * RGB Ribbon version 0.0.7
  *
  * Setup instructions are available on
  * https://github.com/llschall/rgb-ribbon
