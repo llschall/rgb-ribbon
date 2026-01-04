@@ -1,4 +1,4 @@
-package org.llschall.rgbribbon
+package org.llschall.rgb.ribbon
 
 import org.llschall.ardwloop.ArdwloopStarter
 import java.util.function.Consumer

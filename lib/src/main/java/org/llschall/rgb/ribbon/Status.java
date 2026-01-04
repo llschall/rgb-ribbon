@@ -1,4 +1,4 @@
-package org.llschall.rgbribbon;
+package org.llschall.rgb.ribbon;
 
 /**
  * Represents the various operational states of the RGB ribbon controller.

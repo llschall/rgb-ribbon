@@ -1,4 +1,4 @@
-package org.llschall.rgbribbon;
+package org.llschall.rgb.ribbon;
 
 import java.awt.Color;
 
