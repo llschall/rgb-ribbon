@@ -6,6 +6,7 @@ See Java API [here](https://github.com/llschall/rgb-ribbon/tree/main/lib/src/mai
 
 |    Date    | Version | Ino                                                                                                                           |
 |:----------:|:-------:|-------------------------------------------------------------------------------------------------------------------------------|
+| 04.01.2026 |  0.0.7  | [adb0700](https://github.com/llschall/rgb-ribbon/blob/adb070099efc95edc946ab06990f75fff56606df/ino/rgb-ribbon/rgb-ribbon.ino) |
 | 03.01.2026 |  0.0.6  | [4716b86](https://github.com/llschall/rgb-ribbon/blob/4716b867ccbac9723edea92231c58c1362434a47/ino/rgb-ribbon/rgb-ribbon.ino) |
 
 ![blue-green.png](https://github.com/llschall/rgb-ribbon-demo/blob/main/media/blue-green.png)
