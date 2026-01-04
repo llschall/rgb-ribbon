@@ -20,6 +20,10 @@
 // Define the array of leds
 CRGB leds[NUM_LEDS];
 
+// Effect material
+uint8_t pos = 0;
+bool toggle = false;
+
 void setup() {
 
   pinMode(LED_BUILTIN, OUTPUT);
@@ -48,6 +52,7 @@ void loop() {
   ardw_loop();
 
   int v = ardw_r()->a.v;
+  int w = ardw_r()->a.w;
 
   if (v == 1) {
     digitalWrite(LED_BUILTIN, HIGH);
@@ -55,6 +60,15 @@ void loop() {
     digitalWrite(LED_BUILTIN, LOW);
   }
 
+  if (w == 1) {
+    for(int i = 0; i < 100; i++)
+    playEffect();
+  } else {
+    displayArray();
+  }
+}
+
+void displayArray() {
   int brightness = ardw_r()->b.v;
   FastLED.setBrightness(brightness);
 
@@ -67,6 +81,24 @@ void loop() {
   }
 
   FastLED.show();
-
   delay(99);
+}
+
+
+void playEffect() {
+  FastLED.setBrightness(255);
+  // Add a bright pixel that moves
+  leds[pos] = CHSV(pos * 2, 255, 255);
+
+  // Blur the entire strip
+  blur1d(leds, NUM_LEDS, 172);
+  fadeToBlackBy(leds, NUM_LEDS, 16);
+
+  FastLED.show();
+  // Move the position of the dot
+  if (toggle) {
+    pos = (pos + 1) % NUM_LEDS;
+  }
+  toggle = !toggle;
+  delay(30);
 }

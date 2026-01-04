@@ -31,9 +31,21 @@ public class RgbRibbon {
      * Initializes and starts the ribbon operation
      */
     public void start() {
-        impl.start();
+        impl.start(true);
     }
 
+    public void start(boolean retry) {
+        impl.start(retry);
+    }
+
+    public void startEffect() {
+        impl.startEffect();
+    }
+
+    public void stopEffect() {
+        impl.stopEffect();
+    }
+    
     /**
      * Toggles the built-in LED state (on/off)
      */

@@ -12,6 +12,7 @@ import java.util.function.Consumer
 
 class ArdwProgram : IArdwProgram {
 
+    val playEffect: AtomicBoolean = AtomicBoolean(false)
     var brightness = AtomicInteger()
 
     var builtInLed = AtomicBoolean(false)
@@ -44,9 +45,14 @@ class ArdwProgram : IArdwProgram {
         queue.clear()
 
         if (builtInLed.get())
-            data.a.v = 1;
+            data.a.v = 1
         else
-            data.a.v = 0;
+            data.a.v = 0
+
+        if (playEffect.get())
+            data.a.w = 1
+        else
+            data.a.w = 0
 
         data.b.v = brightness.get()
 

@@ -29,6 +29,14 @@ class RgbRibbonImpl() {
         program.brightness.set(brightness)
     }
 
+    fun startEffect() {
+        program.playEffect.set(true)
+    }
+
+    fun stopEffect() {
+        program.playEffect.set(false)
+    }
+
     fun toggleBuiltInLed() {
         val get = program.builtInLed.get()
         program.builtInLed.set(!get)
