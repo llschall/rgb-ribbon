@@ -12,8 +12,13 @@ class RgbRibbonImpl() {
 
     val program = ArdwProgram()
 
-    fun start() {
+    fun start(retryConnection: Boolean) {
+        ArdwloopStarter.get().setRetryConnection(retryConnection)
         ArdwloopStarter.get().start(program, 9600)
+    }
+
+    fun start() {
+        start(true)
     }
 
     fun publish() {
