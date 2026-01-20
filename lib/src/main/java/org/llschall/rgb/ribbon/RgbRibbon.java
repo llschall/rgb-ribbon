@@ -30,7 +30,7 @@ public class RgbRibbon {
      * Initializes and starts the ribbon operation
      */
     public void start() {
-        impl.start(true);
+        impl.start(true, false);
     }
 
     /**
@@ -38,8 +38,8 @@ public class RgbRibbon {
      *
      * @param retry Whether to retry connection on failure
      */
-    public void start(boolean retry) {
-        impl.start(retry);
+    public void start(boolean retry, boolean trayIcon) {
+        impl.start(retry, trayIcon);
     }
 
     /**
