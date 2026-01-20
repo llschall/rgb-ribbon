@@ -21,9 +21,8 @@ public class RgbRibbon {
     /**
      * Creates a new RGB ribbon controller with specified brightness
      *
-     * @param brightness Initial brightness level for the ribbon (0-255)
      */
-    public RgbRibbon(int brightness) {
+    public RgbRibbon() {
         impl = new RgbRibbonImpl();
     }
 
@@ -34,19 +33,28 @@ public class RgbRibbon {
         impl.start(true);
     }
 
+    /**
+     * Initializes and starts the ribbon operation with an option to retry connection
+     *
+     * @param retry Whether to retry connection on failure
+     */
     public void start(boolean retry) {
         impl.start(retry);
     }
 
+    /**
+     * Starts the current LED effect
+     */
     public void startEffect() {
         impl.startEffect();
     }
 
-    public void stopEffect() {
-        impl.stopEffect();
-    }
-    
     /**
+     * public void stopEffect() {
+     * impl.stopEffect();
+     * }
+     * <p>
+     * /**
      * Toggles the built-in LED state (on/off)
      */
     public void toggleBuiltInLed() {
