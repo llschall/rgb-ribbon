@@ -14,7 +14,7 @@ public class RgbRibbonTest {
 
     @Test
     public void awtColorCanBeSet() {
-        RgbRibbon ribbon = new RgbRibbon(10);
+        RgbRibbon ribbon = new RgbRibbon();
         RgbLed led = ribbon.getLed(0);
 
         Color color = new Color(100, 200, 30);
