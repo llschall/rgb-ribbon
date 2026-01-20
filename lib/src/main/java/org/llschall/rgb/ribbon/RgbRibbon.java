@@ -36,7 +36,8 @@ public class RgbRibbon {
     /**
      * Initializes and starts the ribbon operation with an option to retry connection
      *
-     * @param retry Whether to retry connection on failure
+     * @param retry    Whether to retry connection on failure
+     * @param trayIcon Whether to show a tray icon for status indication
      */
     public void start(boolean retry, boolean trayIcon) {
         impl.start(retry, trayIcon);
