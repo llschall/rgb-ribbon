@@ -4,16 +4,18 @@ import org.llschall.ardwloop.ArdwloopStarter
 import java.awt.SystemTray
 import java.awt.Toolkit
 import java.awt.TrayIcon
+import java.awt.event.MouseAdapter
+import java.awt.event.MouseEvent
 import java.util.function.Consumer
 
-class RgbRibbonImpl() {
+class RgbRibbonImpl(brightness: Int) {
 
     companion object {
         @JvmField
         var VERSION: String = "0.0.9"
     }
 
-    val program = ArdwProgram()
+    val program = ArdwProgram(brightness)
 
     fun start(retryConnection: Boolean, displayTrayIcon: Boolean) {
         if (displayTrayIcon) displayTrayIcon()
@@ -35,11 +37,8 @@ class RgbRibbonImpl() {
     }
 
     fun startEffect() {
-        program.playEffect.set(true)
-    }
-
-    fun stopEffect() {
-        program.playEffect.set(false)
+        program.playEffect.incrementAndGet()
+        publish()
     }
 
     fun toggleBuiltInLed() {
@@ -58,10 +57,27 @@ class RgbRibbonImpl() {
 
     fun displayTrayIcon() {
         val resource = RgbRibbonImpl::class.java.getResource("/tray.png")
+        if (resource == null) {
+            System.err.println("Resource /tray.png not found, tray icon won't be displayed")
+            return
+        }
         val image = Toolkit.getDefaultToolkit().createImage(resource)
         val icon = TrayIcon(image)
         icon.setImageAutoSize(true)
         icon.setToolTip("rgb-ribbon")
+
+        // left-click handler: toggle the built-in LED and publish the change
+        icon.addMouseListener(object : MouseAdapter() {
+            override fun mouseClicked(e: MouseEvent) {
+                if (e.button == MouseEvent.BUTTON1) {
+                    startEffect()
+                }
+                if (e.button == MouseEvent.BUTTON3) {
+                    toggleBuiltInLed()
+                }
+            }
+        })
+
         try {
             val tray = SystemTray.getSystemTray()
             tray.add(icon)

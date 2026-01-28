@@ -10,10 +10,10 @@ import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.function.Consumer
 
-class ArdwProgram : IArdwProgram {
+class ArdwProgram(brightness: Int) : IArdwProgram {
 
-    val playEffect: AtomicBoolean = AtomicBoolean(false)
-    var brightness = AtomicInteger()
+    val playEffect: AtomicInteger = AtomicInteger(0)
+    var brightness = AtomicInteger(brightness)
 
     var builtInLed = AtomicBoolean(false)
     val leds = ArrayList<RgbLed>()
@@ -35,6 +35,7 @@ class ArdwProgram : IArdwProgram {
     override fun ardwSetup(p0: SerialData): SerialData {
         val data = SerialData()
         data.array = Array(27) { 0 }
+        data.b.v = brightness.get()
         return data
     }
 
@@ -49,9 +50,10 @@ class ArdwProgram : IArdwProgram {
         else
             data.a.v = 0
 
-        if (playEffect.get())
+        if (playEffect.get() > 0) {
             data.a.w = 1
-        else
+            playEffect.decrementAndGet();
+        } else
             data.a.w = 0
 
         data.b.v = brightness.get()
