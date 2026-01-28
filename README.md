@@ -2,7 +2,7 @@
 
 A library to control a RGB led strip or ribbon plugged into an Arduino board.
 
-See Java API [here](https://github.com/llschall/rgb-ribbon/tree/main/lib/src/main/java/org/llschall/rgbribbon).
+See Java API [here](https://github.com/llschall/rgb-ribbon/tree/main/lib/src/main/java/org/llschall/rgb/ribbon).
 
 https://github.com/llschall/rgb-ribbon/blob/026d80d550e7b07d2d534f085671429e55dba64a/ino/rgb-ribbon/rgb-ribbon.ino
 
