@@ -1,9 +1,11 @@
 /*
- * RGB Ribbon version 0.1.0
+ * RGB Ribbon version 0.1.2
  *
  * Setup instructions are available on
  * https://github.com/llschall/rgb-ribbon
  */
+
+#include <RGBRibbon.h>
 
 // Use Ardwloop 0.3.7
 #include <Ardwloop.h>
