@@ -12,7 +12,7 @@ class RgbRibbonImpl(brightness: Int) {
 
     companion object {
         @JvmField
-        var VERSION: String = "0.1.0"
+        var VERSION: String = "0.1.4"
     }
 
     val program = ArdwProgram(brightness)
