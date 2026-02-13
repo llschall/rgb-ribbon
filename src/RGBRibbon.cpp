@@ -1,5 +1,5 @@
 /*
- * RGB Ribbon version 0.1.3
+ * RGB Ribbon version 0.1.4
  *
  * Setup instructions are available on
  * https://github.com/llschall/rgb-ribbon
@@ -7,12 +7,13 @@
 
 #include <RGBRibbon.h>
 
-// Use Ardwloop 0.3.7
-#include <Ardwloop.h>
-
 // Use FastLED by Daniel Garcia
 // Version 3.10.3
 #include <FastLED.h>
+
+// Use Ardwloop by Laurent Schall
+// Version 0.3.9
+#include <Ardwloop.h>
 
 // How many leds in your strip?
 #define NUM_LEDS 9
