@@ -27,7 +27,19 @@ CRGB leds[NUM_LEDS];
 uint8_t pos = 0;
 bool toggle = false;
 
-void rgb_setup() {
+bool rgbPost() {
+
+  for (int i = 0; i < NUM_LEDS; i+=2) {
+    leds[i] = CRGB(0, 20, 20);
+  }
+  for (int i = 1; i < NUM_LEDS; i+=2) {
+    leds[i] = CRGB::Black;
+  }
+  FastLED.show();
+  return true;
+}
+
+void rgbSetup() {
 
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, HIGH);
@@ -37,12 +49,13 @@ void rgb_setup() {
   FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
 
   for (int i = 0; i < NUM_LEDS; i++) {
-    leds[i] = CRGB(0, 20, 20);
+    leds[i] = CRGB(0, 0, 20);
   }
   FastLED.show();
 
   // Here the baud value should be set to the same value as on the Java side
   ardw_setup(BAUD_9600);
+  ardw_post(rgbPost);
 
   for (int i = 0; i < NUM_LEDS; i++) {
     leds[i] = CRGB(0, 0, 20);
@@ -51,7 +64,7 @@ void rgb_setup() {
   FastLED.show();
 }
 
-void rgb_loop() {
+void rgbLoop() {
   ardw_loop();
 
   int v = ardw_r()->a.v;
