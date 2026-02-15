@@ -64,7 +64,7 @@ publishing {
             from components.java
             groupId = 'io.github.llschall'
             artifactId = 'rgb-ribbon'
-            version = '0.1.5'
+            version = '0.1.6'
             pom {
                 name = 'rgb-ribbon'
                 description = 'rgb-ribbon controls a led strip plugged in any Arduino board.'
