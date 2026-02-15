@@ -18,9 +18,9 @@
 #include <RGBRibbon.h>
 
 void setup() {
-  rgb_setup();
+  rgbSetup();
 }
 
 void loop() {
-  rgb_loop();
+  rgbLoop();
 }

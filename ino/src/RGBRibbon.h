@@ -5,8 +5,8 @@
  * https://github.com/llschall/rgb-ribbon/wiki
  */
 
-void rgb_setup();
-void rgb_loop();
+void rgbSetup();
+void rgbLoop();
 
 void displayArray();
 void playEffect();
