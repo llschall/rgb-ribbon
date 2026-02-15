@@ -8,14 +8,14 @@ import java.awt.event.MouseAdapter
 import java.awt.event.MouseEvent
 import java.util.function.Consumer
 
-class RgbRibbonImpl(brightness: Int) {
+class RgbRibbonImpl(brightness: Int, postMs: Int) {
 
     companion object {
         @JvmField
         var VERSION: String = "0.1.5"
     }
 
-    val program = ArdwProgram(brightness)
+    val program = ArdwProgram(brightness, postMs)
 
     fun start(retryConnection: Boolean, displayTrayIcon: Boolean) {
         if (displayTrayIcon) displayTrayIcon()

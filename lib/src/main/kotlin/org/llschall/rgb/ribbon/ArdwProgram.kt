@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.function.Consumer
 
-class ArdwProgram(brightness: Int) : IArdwProgram {
+class ArdwProgram(brightness: Int, val postMs: Int) : IArdwProgram {
 
     val playEffect: AtomicInteger = AtomicInteger(0)
     var brightness = AtomicInteger(brightness)
@@ -67,6 +67,10 @@ class ArdwProgram(brightness: Int) : IArdwProgram {
             data.array[3 * i + 2] = led.blue
         }
         return data
+    }
+
+    override fun getPostDelayMs(): Int {
+        return this.postMs
     }
 
     override fun fireStatusChanged(status: ArdwloopStatus) {

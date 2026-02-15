@@ -22,7 +22,7 @@ public class RgbRibbon {
      * Creates a new RGB ribbon controller with a brightness of 80
      */
     public RgbRibbon() {
-        this(80);
+        this(80, 100_000);
     }
 
     /**
@@ -30,8 +30,8 @@ public class RgbRibbon {
      *
      * @param brightness Initial brightness level (0-255)
      */
-    public RgbRibbon(int brightness) {
-        impl = new RgbRibbonImpl(brightness);
+    public RgbRibbon(int brightness, int postMs) {
+        impl = new RgbRibbonImpl(brightness, postMs);
     }
 
     /**
